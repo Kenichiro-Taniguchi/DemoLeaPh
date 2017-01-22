@@ -149,6 +149,16 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="LeaPh" id="GAq-U0-idA">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="3bP-iX-Nen">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jb3-3y-0uL">
+                                                <rect key="frame" x="16" y="7" width="83" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="reload"/>
+                                                <connections>
+                                                    <action selector="tapReload:" destination="FtH-H2-Se6" eventType="touchUpInside" id="fGA-1h-mrx"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" style="plain" id="r7M-2v-87s">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ylH-Ol-9Bh">
                                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
@@ -158,6 +168,9 @@
                                                     <segue destination="gCi-yB-ZKE" kind="show" id="ZNv-NJ-eaf"/>
                                                 </connections>
                                             </button>
+                                            <connections>
+                                                <action selector="tapPost:" destination="FtH-H2-Se6" id="Xvq-dt-0ub"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -171,12 +184,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4OK-fW-YKe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="948" y="36.431784107946029"/>
+            <point key="canvasLocation" x="1185" y="37"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="dsl-SM-Z5M">
             <objects>
-                <viewController id="gCi-yB-ZKE" customClass="CameraViewController" customModule="DemoLeaPh" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CameraView" id="gCi-yB-ZKE" customClass="CameraViewController" customModule="DemoLeaPh" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6OU-mn-0yg"/>
                         <viewControllerLayoutGuide type="bottom" id="HPl-ca-KV4"/>

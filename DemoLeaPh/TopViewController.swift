@@ -24,28 +24,37 @@ class TopViewController: UIViewController,UITableViewDelegate,UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        SVProgressHUD.show(withStatus: "読み込み中")
         
-        Alamofire.request("http://localhost:3000/posts").responseJSON(completionHandler: {response in
-          self.objs = try! JAYSON(any: response.result.value)
-            for obj in (self.objs?.array)! {
-                var p = Post(title: obj["title"].string!, userName: obj["user"]["name"].string!, imageUrl: NSURL(string:"http://localhost:3000" + obj["image_url"]["image_url"]["url"].string!))
-               
-                self.posts.append(p)
-                
-            }
-         self.tableView.reloadData()
-         SVProgressHUD.dismiss()
-          
-        })
         
         
         // Do any additional setup after loading the view.
             }
+    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        posts = []
+        SVProgressHUD.show(withStatus: "読み込み中")
+        
+        Alamofire.request("http://localhost:3000/posts").responseJSON(completionHandler: {response in
+            self.objs = try! JAYSON(any: response.result.value)
+            for obj in (self.objs?.array)! {
+                var p = Post(title: obj["title"].string!, userName: obj["user"]["name"].string!, imageUrl: NSURL(string:"http://localhost:3000" + obj["image_url"]["image_url"]["url"].string!))
+                
+                self.posts.append(p)
+                
+            }
+            self.tableView.reloadData()
+            SVProgressHUD.dismiss()
+            
+        })
 
+    }
+    
+    
+    
     override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+                // Dispose of any resources that can be recreated.
     }
     
     
@@ -71,7 +80,29 @@ class TopViewController: UIViewController,UITableViewDelegate,UITableViewDataSou
         
     }
     
+    @IBAction func tapPost(_ sender: Any) {
+    }
     
+    @IBAction func tapReload(_ sender: Any) {
+        posts = []
+        SVProgressHUD.show(withStatus: "読み込み中")
+        
+        Alamofire.request("http://localhost:3000/posts").responseJSON(completionHandler: {response in
+            self.objs = try! JAYSON(any: response.result.value)
+            for obj in (self.objs?.array)! {
+                var p = Post(title: obj["title"].string!, userName: obj["user"]["name"].string!, imageUrl: NSURL(string:"http://localhost:3000" + obj["image_url"]["image_url"]["url"].string!))
+                
+                self.posts.append(p)
+                
+            }
+            self.tableView.reloadData()
+            SVProgressHUD.dismiss()
+            
+        })
+        
+
+    }
+
     
     
         /*

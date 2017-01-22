@@ -14,6 +14,8 @@ class PostFile :NSObject{
     var user_id = 1
     var latitude:Double = 0
     var longitude:Double = 0
+    var topViewController: TopViewController!
+
     
      func postImage(fileURL:URL){
         
@@ -38,6 +40,7 @@ class PostFile :NSObject{
             case .success(let upload, _, _):
                 upload.responseJSON { response in
                     debugPrint(response)
+                                       
                 }
             case .failure(let encodingError):
                 print(encodingError)

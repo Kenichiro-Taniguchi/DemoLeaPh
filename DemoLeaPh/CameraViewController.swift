@@ -19,6 +19,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var cameraView: UIImageView!
     @IBOutlet weak var titleText: UITextField!
     
+        
     var imageUrl:URL?
     var flag:Bool?
     var takePhotoImage:UIImage?
@@ -206,13 +207,14 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBAction func tapPost(_ sender: Any) {
         
         
-       
-        postFile.title = titleText.text!
+               postFile.title = titleText.text!
         
         
         postFile.postImage(fileURL: imageUrl!)
         
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: {
+        
+        })
         
     }
 
